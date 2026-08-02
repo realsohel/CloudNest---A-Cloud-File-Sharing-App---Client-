@@ -1,4 +1,5 @@
+import logo from "./cloudNestLogo.png"
 
-export const assests = {
-    
+export const assets = {
+    logo
 }

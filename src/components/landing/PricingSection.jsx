@@ -8,14 +8,14 @@ const PricingSection = ({ pricingPlans }) => {
 
                 {/* Heading */}
                 <div className="text-center">
-                <h2 className="text-4xl font-bold text-gray-900">
-                    Simple and Transparent Pricing
-                </h2>
+                    <h2 className="text-4xl font-bold text-gray-900">
+                        Simple and Transparent Pricing
+                    </h2>
 
-                <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-500">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Laboriosam, voluptatum.
-                </p>
+                    <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-500">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Laboriosam, voluptatum.
+                    </p>
                 </div>
 
                 {/* Cards */}

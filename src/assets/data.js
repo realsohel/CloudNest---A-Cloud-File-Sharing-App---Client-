@@ -84,3 +84,45 @@ export const pricingPlans = [
         ]
     }
 ];
+export const testimonials = [
+    {
+        id: 1,
+        quote:
+            "CloudNest made sharing project files incredibly simple. Uploading is fast, and public links work flawlessly.",
+        author: "Sarah Johnson",
+        handle: "@sarahcodes",
+    },
+    {
+        id: 2,
+        quote:
+            "The interface is clean, intuitive, and feels like a lightweight version of Google Drive. Exactly what I needed.",
+        author: "David Wilson",
+        handle: "@davidbuilds",
+    },
+    {
+        id: 3,
+        quote:
+            "I can securely upload files, organize them, and share them with just a few clicks. CloudNest has become part of my daily workflow.",
+        author: "Emily Carter",
+        handle: "@emilydev",
+    },
+];
+
+export const FOOTER_CONSTANTS = [
+    {
+        url: "https://github.com/realsohel",
+        logo: "https://img.icons8.com/fluent/30/000000/github.png",
+    },
+    {
+        url: "https://www.linkedin.com/in/mohd-sohel-salmani/",
+        logo: "https://img.icons8.com/fluent/30/000000/linkedin-2.png",
+    },
+    {
+        url: "https://www.instagram.com/real_.sohel",
+        logo: "https://img.icons8.com/fluent/30/000000/instagram-new.png",
+    },
+    {
+        url: "https://x.com/real_sohel_",
+        logo: "https://img.icons8.com/fluent/30/000000/twitter.png",
+    },
+];

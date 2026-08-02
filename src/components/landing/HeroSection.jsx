@@ -17,13 +17,14 @@ const HeroSection = () => {
                             Share files seamlessly with your team and collaborators.
                         </p>
 
-                        <div className="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
-                            <div className="space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5">
-                                <button className='flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-purple-500 hover:bg-purple-600 md:py-4 md:text-lg md:px-10 cursor-pointer transition-all duration-200 shadow-lg hover:shadow-xl '>
+                        <div className="mt-10 flex justify-center">
+                            <div className="grid w-full max-w-sm grid-cols-2 gap-4 sm:flex sm:w-auto">
+                                <button className="rounded-lg bg-purple-500 px-6 py-3 text-base font-medium text-white shadow-lg transition hover:bg-purple-600 hover:shadow-xl md:px-10 md:py-4 md:text-lg">
                                     Get Started
                                 </button>
-                                <button className='flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-gray-500 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-16 cursor-pointer transition-all duration-200 shadow-lg hover:shadow-xl '>
-                                    Sign In
+
+                                <button className="rounded-lg bg-white px-6 py-3 text-base font-medium text-purple-500 shadow-lg transition hover:border hover:border-purple-500 hover:shadow-xl md:px-10 md:py-4 md:text-lg">
+                                    Sign Up
                                 </button>
                             </div>
                         </div>

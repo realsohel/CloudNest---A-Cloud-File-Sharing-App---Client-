@@ -5,7 +5,7 @@ import PricingSection from '../components/landing/PricingSection'
 import TestimonialsSection from '../components/landing/TestimonialsSection'
 import CtaSection from '../components/landing/CtaSection'
 import Footer from '../components/landing/Footer'
-import { features, pricingPlans } from '../assets/data'
+import { features, FOOTER_CONSTANTS, pricingPlans, testimonials } from '../assets/data'
 
 const Landing = () => {
   return (
@@ -20,13 +20,13 @@ const Landing = () => {
       <PricingSection pricingPlans={pricingPlans}/>
 
       {/* Testimonials Section */}
-      <TestimonialsSection/>
+      <TestimonialsSection testimonials={testimonials}/>
 
       {/* CTA Section */}
       <CtaSection/>
 
       {/* Footer */}
-      <Footer/>
+      <Footer footers={FOOTER_CONSTANTS}/>
       
     </div>
   )
