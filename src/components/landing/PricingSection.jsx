@@ -1,7 +1,7 @@
 import React from "react";
 import { Check } from "lucide-react";
 
-const PricingSection = ({ pricingPlans }) => {
+const PricingSection = ({ pricingPlans, openSignUp }) => {
     return (
         <section className="py-20 bg-gray-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -64,7 +64,8 @@ const PricingSection = ({ pricingPlans }) => {
 
                             {/* Button always at bottom */}
                             <button
-                            className={`mt-10 w-full rounded-lg py-3 text-lg font-semibold  transition-all duration-300 shadow-md
+                                onClick={() => openSignUp()}
+                                className={`mt-10 w-full rounded-lg py-3 text-lg font-semibold  transition-all duration-300 shadow-md
                                 ${
                                 plan.popular
                                     ? "text-white bg-linear-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600"

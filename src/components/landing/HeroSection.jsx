@@ -1,6 +1,6 @@
 import React from 'react'
 
-const HeroSection = () => {
+const HeroSection = ({openSignUp, openSignIn}) => {
     return (
         <div className="landing-page-content relative">
             <div className="absolute inset-0 bg-linear-to-r from-purple-100 to-indigo-50 opacity-80 z-0 pointer-events-none"></div>
@@ -19,12 +19,17 @@ const HeroSection = () => {
 
                         <div className="mt-10 flex justify-center">
                             <div className="grid w-full max-w-sm grid-cols-2 gap-4 sm:flex sm:w-auto">
-                                <button className="rounded-lg bg-purple-500 px-6 py-3 text-base font-medium text-white shadow-lg transition hover:bg-purple-600 hover:shadow-xl md:px-10 md:py-4 md:text-lg">
+                                <button 
+                                    onClick={()=>openSignUp()}
+                                    className="rounded-lg bg-purple-500 px-6 py-3 text-base font-medium text-white shadow-lg transition hover:bg-purple-600 hover:shadow-xl md:px-10 md:py-4 md:text-lg">
                                     Get Started
                                 </button>
 
-                                <button className="rounded-lg bg-white px-6 py-3 text-base font-medium text-purple-500 shadow-lg transition hover:border hover:border-purple-500 hover:shadow-xl md:px-10 md:py-4 md:text-lg">
-                                    Sign Up
+                                <button 
+                                    onClick={()=>openSignIn()}
+                                    className="rounded-lg bg-white px-6 py-3 text-base font-medium text-purple-500 shadow-lg transition hover:border hover:border-purple-500 hover:shadow-xl md:px-10 md:py-4 md:text-lg"
+                                >
+                                    Sign In
                                 </button>
                             </div>
                         </div>
