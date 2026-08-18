@@ -1,4 +1,4 @@
-import { Coins, File, RotateCcwClock, Share, Share2, Upload, Wallet } from "lucide-react";
+import { Coins, CreditCard, File, Files, LayoutDashboard, Receipt, RotateCcwClock, Share, Share2, Upload, Wallet } from "lucide-react";
 
 export const features = [
     {
@@ -124,5 +124,38 @@ export const FOOTER_CONSTANTS = [
     {
         url: "https://x.com/real_sohel_",
         logo: "https://img.icons8.com/fluent/30/000000/twitter.png",
+    },
+];
+
+export const SIDE_MENU_DATA = [
+    {
+        id: "01",
+        label: "Dashboard",
+        icon: LayoutDashboard,
+        path: "/dashboard",
+    },
+    {
+        id: "02",
+        label: "Upload",
+        icon: Upload,
+        path: "/uploads",
+    },
+    {
+        id: "03",
+        label: "My-Files",
+        icon: Files,
+        path: "/my-files",
+    },
+    {
+        id: "04",
+        label: "Subscription",
+        icon: CreditCard,
+        path: "/subscription",
+    },
+    {
+        id: "05",
+        label: "Transactions",
+        icon: Receipt,
+        path: "/transactions",
     },
 ];

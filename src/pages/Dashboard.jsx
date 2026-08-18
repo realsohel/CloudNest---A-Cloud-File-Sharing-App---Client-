@@ -1,11 +1,14 @@
 import { UserButton, UserProfile } from '@clerk/react'
 import React from 'react'
+import DashboardLayout from '../layout/DashboardLayout'
 
 const Dashboard = () => {
   return (
-    <div>
-      <UserButton/>
-    </div>
+    <DashboardLayout activeMenu={"Dashboard"}>
+      <div className="">
+        Dashboard Content
+      </div>
+    </DashboardLayout>
   )
 }
 

@@ -1,10 +1,11 @@
 import React from 'react'
+import DashboardLayout from '../layout/DashboardLayout'
 
 const Subscription = () => {
   return (
-    <div>
-      
-    </div>
+    <DashboardLayout activeMenu={"Subscription"}>
+      Subscription
+    </DashboardLayout>
   )
 }
 

@@ -1,10 +1,11 @@
 import React from 'react'
+import DashboardLayout from '../layout/DashboardLayout'
 
 const MyFiles = () => {
   return (
-    <div>
-      
-    </div>
+    <DashboardLayout activeMenu={"My-Files"}>
+        My Files
+    </DashboardLayout>
   )
 }
 
