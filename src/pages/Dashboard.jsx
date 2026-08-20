@@ -1,4 +1,4 @@
-import { UserButton, UserProfile } from '@clerk/react'
+import {UserButton, UserProfile } from '@clerk/react'
 import React from 'react'
 import DashboardLayout from '../layout/DashboardLayout'
 
