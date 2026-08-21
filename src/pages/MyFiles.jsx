@@ -27,7 +27,6 @@ const MyFiles = () => {
 
   const getFileIcon = (file)=>{
       const extention = file.name.split('.').pop().toLowerCase();
-      console.log(extention)
 
       if(['mp4', 'webm', 'mov', 'avi', 'mkv'].includes(extention)){
           return <Video size={24} className='text-blue-500'/>
