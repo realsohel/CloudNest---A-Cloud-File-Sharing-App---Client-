@@ -21,6 +21,31 @@ export const fetchFiles = async(token)=>{
     }
 }
 
+export const uploadFiles = async(token, formData)=>{
+    try{
+        const response = await api.post("/files/upload",formData, {headers:{
+            'Content-Type': 'multipart/form-data',
+            'Authorization': `Bearer ${token}`
+        }});
+
+        if(response.status==201){
+            console.log(response);
+    
+            toast.success("Files fetched successfully")
+            return response.data;
+        }
+        else{
+            toast.error("Error Uploading files. Please try again later")
+            console.log("Error Upload files: ");
+        }
+
+    }catch(error){
+        console.log("Error Upload files: ", error.message);
+        toast.error("Error Uploading files. Please try again later")
+
+    }
+}
+
 export const toggleView = async(token,fileId)=>{
     try{
         const response = await api.patch(`/files/${fileId}/toggle-public` , {}, {headers:{
