@@ -108,3 +108,21 @@ export const DeleteFile = async(token,fileId)=>{
 
     }
 }
+
+export const getPublicFile = async(token, fileId)=>{
+    try{
+        const response = await api.get(
+            `/files/public/${fileId}`, 
+            {headers:{
+                'Authorization': `Bearer ${token}`
+            }}
+        );
+        
+        return response.data;
+
+    }catch(error){
+        console.log("Error Fetching Public File: ", error.message);
+        toast.error("Error fetching File. Please try again later")
+
+    }
+}

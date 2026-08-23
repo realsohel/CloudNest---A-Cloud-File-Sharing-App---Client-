@@ -86,9 +86,15 @@ const MyFiles = () => {
       link.click(); // download file
       link.remove(); // delete file
       window.URL.revokeObjectURL(url); // Clean up the Object url
+      document.body.appendChild(link);
+
+      link.click(); // download file
+      link.remove(); // delete file
+      window.URL.revokeObjectURL(url); // Clean up the Object url
 
     } catch (error) {
-      console.error('Error fetching files:', error);
+      console.error('Error Downloading the file:', error);
+      toast.error("Error download the file. Please try again later.");
     }
   }
 
@@ -302,7 +308,7 @@ const MyFiles = () => {
 
                           <div className="flex justify-center">
                             {file.isPublic ?(
-                              <a to={`/file/${file.id}`} title='View File' target='_blank' rel='noreferrer' className='text-gray-500 hover:text-blue-600'>
+                              <a href={`/file/${file.id}`} title='View File' target='_blank' rel='noreferrer' className='text-gray-500 hover:text-blue-600'>
                                 <Eye size={18}/>
                               </a>
                             ):(

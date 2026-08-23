@@ -27,7 +27,7 @@ const App = () => {
       
       </Route>
 
-      <Route path='/public-file-view' element={<PublicFileView/>}/>
+      <Route path='/file/:fileId' element={<PublicFileView/>}/>
       <Route path='/*' element={<RedirectToSignIn/>}/>
 
     </Routes>

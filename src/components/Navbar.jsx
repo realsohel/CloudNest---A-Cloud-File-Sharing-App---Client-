@@ -1,7 +1,7 @@
 import { Menu, Share2, Wallet, X } from 'lucide-react';
 import React, { useContext, useEffect, useState } from 'react'
 import logo from "../assets/cloudNestLogo.png";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Show, UserButton } from '@clerk/react';
 import SideMenu from './SideMenu';
 import CreditDisplay from './CreditDisplay';
@@ -10,6 +10,7 @@ import { userCreditsContext } from '../context/UserCreditsContext';
 const Navbar = ({activeMenu}) => {
     const [openSideMenu, setOpenSideMenu] = useState(false);
     const {credits, fetchUserCredits} = useContext(userCreditsContext);
+    const navigate = useNavigate();
 
     useEffect(()=>{
         fetchUserCredits();
@@ -32,7 +33,7 @@ const Navbar = ({activeMenu}) => {
                 <div className="flex items-center gap-2">
                     <img src={logo} alt="" width={60}/>
                     <span className='text-lg font-bold text-black truncate'>
-                        CLoud Nest
+                        Cloud Nest
                     </span> 
                 </div>
             </div>

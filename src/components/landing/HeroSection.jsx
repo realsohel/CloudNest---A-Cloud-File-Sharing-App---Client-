@@ -1,6 +1,30 @@
 import React from 'react'
 
+import image from "../../assets/image.png";
+import { useUser } from '@clerk/react';
+import { useNavigate } from 'react-router-dom';
+
 const HeroSection = ({openSignUp, openSignIn}) => {
+
+    const {isSignedIn} = useUser();
+    const navigate = useNavigate();
+    const handleStarted = ()=>{
+        if(isSignedIn){
+            navigate("/dashboard");
+        }
+        else{
+            openSignUp();
+        }
+    }
+
+    const handleSignIn = ()=>{
+        if(isSignedIn){
+            navigate("/my-files");
+        }
+        else{
+            openSignIn();
+        }
+    }
     return (
         <div className="landing-page-content relative">
             <div className="absolute inset-0 bg-linear-to-r from-purple-100 to-indigo-50 opacity-80 z-0 pointer-events-none"></div>
@@ -20,16 +44,16 @@ const HeroSection = ({openSignUp, openSignIn}) => {
                         <div className="mt-10 flex justify-center">
                             <div className="grid w-full max-w-sm grid-cols-2 gap-4 sm:flex sm:w-auto">
                                 <button 
-                                    onClick={()=>openSignUp()}
+                                    onClick={()=>handleStarted()}
                                     className="rounded-lg bg-purple-500 px-6 py-3 text-base font-medium text-white shadow-lg transition hover:bg-purple-600 hover:shadow-xl md:px-10 md:py-4 md:text-lg">
-                                    Get Started
+                                    {isSignedIn ? "Go to Dashboard": "Get Started"}
                                 </button>
 
                                 <button 
-                                    onClick={()=>openSignIn()}
+                                    onClick={()=>handleSignIn()}
                                     className="rounded-lg bg-white px-6 py-3 text-base font-medium text-purple-500 shadow-lg transition hover:border hover:border-purple-500 hover:shadow-xl md:px-10 md:py-4 md:text-lg"
                                 >
-                                    Sign In
+                                    {isSignedIn ? "My Files": "Sign In"}
                                 </button>
                             </div>
                         </div>
@@ -39,7 +63,7 @@ const HeroSection = ({openSignUp, openSignIn}) => {
 
                 <div className="relative">
                     <div className="aspect-w-16 rounded-lg shadow-lg overflow-hidden">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiKhrJyodaaiFQY-bMkMlSG78LrtsIrrCcYRnfMb8xEw&s=10" alt="CloudNest Dashboard" className='w-full h-full object-cover'/>
+                        <img src={image} alt="CloudNest Dashboard" className='w-full h-full object-cover'/>
                     </div>
 
                     <div className="absolute inset-0 bg-linear-to-t from-black opacity-10 rounded-lg">
