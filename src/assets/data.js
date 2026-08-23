@@ -46,6 +46,7 @@ export const pricingPlans = [
         name: "Free",
         price: 0,
         description: "Perfect for getting started",
+        credits: 5,
         popular: false,
         features: [
             "5 file uploads",
@@ -59,6 +60,7 @@ export const pricingPlans = [
         name: "Premium",
         price: 500,
         description: "For individuals with larger needs",
+        credits: 500,
         popular: true,
         features: [
             "500 file uploads",
@@ -73,6 +75,7 @@ export const pricingPlans = [
         name: "Ultimate",
         price: 2500,
         description: "For teams and businesses",
+        credits: 5000,
         popular: false,
         features: [
             "5000 file uploads",
