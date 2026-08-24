@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import DashboardLayout from '../layout/DashboardLayout'
-import { Copy, Download, Eye, File, FileText, Globe, Grid, Image, List, Lock, Music, Trash2, Video } from 'lucide-react';
+import { Copy, Download, Eye, File, FileText, Globe, Grid, Image, List, Loader2, Lock, Music, Trash2, Video } from 'lucide-react';
 import { DeleteFile, DownloadFile, fetchFiles, toggleView } from '../services/FileService';
 import { useAuth } from '@clerk/react';
 import { Link, useNavigate } from 'react-router-dom';
@@ -12,6 +12,7 @@ import LinkShareModal from '../components/LinkShareModal';
 const MyFiles = () => {
   const [files, setFiles] = useState([]);
   const [viewMode, setViewMode] = useState("list");
+  const [isLoading, setIsLoading] = useState(false);
   const {getToken} = useAuth();
   const navigate = useNavigate();
   const [deleteConfirmation, setDeleteConfirmation] = useState({
@@ -149,6 +150,7 @@ const MyFiles = () => {
 
   useEffect(()=>{
     const fetchingFiles = async () => {
+      setIsLoading(true);
       try {
         const token = await getToken();
         console.log(token)
@@ -159,6 +161,9 @@ const MyFiles = () => {
 
       } catch (error) {
         console.error('Error fetching files:', error);
+      }
+      finally{
+        setIsLoading(false);
       }
     };
 
@@ -191,7 +196,12 @@ const MyFiles = () => {
             </div>
           </div>
 
-          {files.length ==0 ? (
+          {isLoading ? (
+            <div className="flex justify-center items-center h-64">
+              <Loader2 className='animate-spin mr-2' size={24}/>
+              <span>Loading transactions...</span>
+            </div>
+          ):(files.length ==0 ? (
             <div className="my-12 bg-white rounded-lg shadow-lg p-12 flex flex-col items-center justify-center">
               <File size={60} className='text-purple-300 mb-4'/>
 
@@ -325,7 +335,8 @@ const MyFiles = () => {
               </table>
 
             </div>
-          )}
+          ))}
+          
 
           <ConfirmationDialog
             isOpen={deleteConfirmation.isOpen}
