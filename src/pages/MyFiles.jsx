@@ -71,34 +71,48 @@ const MyFiles = () => {
     }
   }
 
-  const handleDownload = async(file)=>{
+
+const handleDownload = async (file) => {
     try {
-      const token = await getToken();
+        const token = await getToken();
 
-      const response = await DownloadFile(token, file.id);
-      console.log(response)
+        const res = await DownloadFile(token, file.id);
+        const response = res.data;
+        console.log("S3 URL:", response.fileLocation);
 
-      const url = window.URL.createObjectURL(new Blob([response]));
-      const link = document.createElement("a");
-      link.href=url;
-      link.setAttribute("download", file.name)
-      document.body.appendChild(link);
+        const fileResponse = await fetch(response.fileLocation);
 
-      link.click(); // download file
-      link.remove(); // delete file
-      window.URL.revokeObjectURL(url); // Clean up the Object url
-      document.body.appendChild(link);
+        console.log("S3 status:", fileResponse.status);
+        console.log("S3 content-type:", fileResponse.headers.get("content-type"));
 
-      link.click(); // download file
-      link.remove(); // delete file
-      window.URL.revokeObjectURL(url); // Clean up the Object url
+        if (!fileResponse.ok) {
+            throw new Error("Failed to fetch file from S3");
+        }
+
+        const blob = await fileResponse.blob();
+
+        console.log("Blob type:", blob.type);
+        console.log("Blob size:", blob.size);
+
+        const url = window.URL.createObjectURL(blob);
+
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = file.name;
+
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+
+        setTimeout(() => {
+            window.URL.revokeObjectURL(url);
+        }, 1000);
 
     } catch (error) {
-      console.error('Error Downloading the file:', error);
-      toast.error("Error download the file. Please try again later.");
+        console.error("Error Downloading the file:", error);
+        toast.error("Error downloading the file. Please try again later.");
     }
-  }
-
+};
 
   const closeDeleteConfirmation=()=>{
     setDeleteConfirmation({

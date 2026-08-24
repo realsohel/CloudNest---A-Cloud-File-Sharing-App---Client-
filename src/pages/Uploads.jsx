@@ -70,6 +70,7 @@ const Uploads = () => {
 
     const formData = new FormData();
     files.forEach((file)=>formData.append("files",file));
+    console.log(files);
 
     try{
       const token = await getToken();

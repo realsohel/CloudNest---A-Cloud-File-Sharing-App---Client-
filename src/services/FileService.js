@@ -21,30 +21,37 @@ export const fetchFiles = async(token)=>{
     }
 }
 
-export const uploadFiles = async(token, formData)=>{
-    try{
-        const response = await api.post("/files/upload",formData, {headers:{
-            'Content-Type': 'multipart/form-data',
-            'Authorization': `Bearer ${token}`
-        }});
+export const uploadFiles = async (token, formData) => {
+    try {
+        const response = await api.post(
+            "/files/upload",
+            formData,
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            }
+        );
 
-        if(response.status==201){
-            console.log(response);
-    
-            toast.success("Files fetched successfully")
-            return response.data;
+        if (response.status === 201) {
+            toast.success("Files uploaded successfully");
+            return response;
         }
-        else{
-            toast.error("Error Uploading files. Please try again later")
-            console.log("Error Upload files: ");
-        }
 
-    }catch(error){
-        console.log("Error Upload files: ", error.message);
-        toast.error("Error Uploading files. Please try again later")
+        toast.error("Error Uploading files. Please try again later");
+        return response;
 
+    } catch (error) {
+        console.log(
+            "Error Upload files: ",
+            error.response?.data || error.message
+        );
+
+        toast.error("Error Uploading files. Please try again later");
+
+        throw error; // IMPORTANT
     }
-}
+};
 
 export const toggleView = async(token,fileId)=>{
     try{
@@ -64,25 +71,25 @@ export const toggleView = async(token,fileId)=>{
     }
 }
 
-export const DownloadFile = async(token,fileId)=>{
-    try{
+export const DownloadFile = async (token, fileId) => {
+    try {
         const response = await api.get(`/files/download/${fileId}`, {
             headers: {
-                'Authorization': `Bearer ${token}`
-            },
-            responseType: 'blob'
+                Authorization: `Bearer ${token}`
+            }
         });
 
-        console.log(response);
         return response.data;
 
-    }catch(error){
-        console.log("Error Downloading files: ", error.message);
-        toast.error("Error Downloading files. Please try again later")
+    } catch (error) {
+        console.log(
+            "Error Downloading files:",
+            error.response?.data || error.message
+        );
 
+        throw error;
     }
-}
-
+};
 export const DeleteFile = async(token,fileId)=>{
     try{
         const response = await api.delete(`/files/delete/${fileId}`, {
