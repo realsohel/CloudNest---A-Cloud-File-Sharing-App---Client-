@@ -10,12 +10,12 @@ import MyFiles from './pages/MyFiles'
 import Transaction from './pages/Transaction'
 import ProtectedLayout from './layout/ProtectedLayout'
 import { RedirectToSignIn } from '@clerk/react'
+import NotFound from './pages/NotFound'
 
 const App = () => {
   return (
     <Routes>
       <Route path='/' element={<Landing/>}/>
-      <Route path="/" element={<Landing />} />
 
       <Route element={<ProtectedLayout />}>
 
@@ -28,7 +28,7 @@ const App = () => {
       </Route>
 
       <Route path='/file/:fileId' element={<PublicFileView/>}/>
-      <Route path='/*' element={<RedirectToSignIn/>}/>
+      <Route path="*" element={<NotFound />} />
 
     </Routes>
   )
