@@ -9,45 +9,7 @@ User authentication, authorization, and session handling are managed using **Cle
 
 ---
 ## LLD with Flowchart
-![LLD of Pure Pic.ai](https://drive.google.com/uc?export=view&id=1gZaVMQQ7OuMykTu-estRlsXZ4sKcmkv6)
-
-flowchart TD
-    A[User] --> B[CloudNest React Frontend]
-
-    B --> C{Authentication}
-    C -->|Signed In| D[Clerk Authentication]
-    C -->|Signed Out| E[Sign In / Sign Up]
-
-    D --> F[Protected Dashboard]
-
-    F --> G[Dashboard]
-    F --> H[Uploads]
-    F --> I[My Files]
-    F --> J[Subscription]
-    F --> K[Transactions]
-
-    H --> L[Select Files]
-    L --> M[Check Credits]
-    M -->|Credits Available| N[Upload via REST API]
-    M -->|Insufficient Credits| O[Show Error]
-
-    N --> P[Spring Boot Backend]
-    P --> Q[AWS S3]
-    P --> R[MongoDB]
-
-    I --> S[Manage Files]
-    S --> T[Toggle Public / Private]
-    S --> U[Download]
-    S --> V[Delete]
-
-    T --> W[Public File Link]
-    W --> X[Public File View]
-
-    J --> Y[Razorpay Checkout]
-    Y --> P
-    P --> Z[Payment Verification]
-    Z --> R
-    Z --> AA[Credits Updated]
+![LLD of CloudNest](https://drive.google.com/uc?export=view&id=1dAPAriQ4O8LPGlD2IL0fsKKGSXctLunG)
 
 
 ## Pages & Features
